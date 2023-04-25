@@ -18,15 +18,15 @@ public Rectangle(int xb, int yb, int xt, int yt) {
     this.yt = yt; 
 }
 
-public void add(Rectangle obj){
+public void adder(Rectangle obj){
     rectArray.add(obj);
 }
 
 
 public void printRectangles() {
-    for (Rectangle rec : rectArray) {
-        System.out.println("xb is :"+rec.xb+"yb is :"+rec.yb+"xt is :"+rec.xt+"yt is :"+rec.yt);
-        System.out.println(rec.rectArray.size());    
+    for (int j = 0; j < rectArray.size(); j++) {
+        System.out.println("xb is :"+rectArray.get(j).xb+"yb is :"+rectArray.get(j).yb+"xt is :"+rectArray.get(j).xt+"yt is :"+rectArray.get(j).yt);
+        System.out.println(rectArray.get(j).rectArray.size());    
     }
 }
 
@@ -34,19 +34,19 @@ public int getNumAdjacent() {
     return rectArray.size();
 }
 
-public void check(ArrayList<Rectangle> currentarray){
-    for(int i = 0; i < currentarray.size(); i++){
+public void check(ArrayList<Rectangle> currentarray,int i){
         for(int j = i+1; j < currentarray.size(); j++){
             // compare x and y values
-            if(currentarray.get(j).xb == currentarray.get(i).xt+1){
+            if(currentarray.get(j).xb == xt+1){
                 // check if the rectangles touch
-                if(currentarray.get(j).yb >= currentarray.get(i).yb && currentarray.get(j).yb <= currentarray.get(i).yt || currentarray.get(j).yt >= currentarray.get(i).yb && currentarray.get(j).yt <= currentarray.get(i).yt){
+                if(currentarray.get(j).yb >= yb && currentarray.get(j).yb <= yt || currentarray.get(j).yt >= yb && currentarray.get(j).yt <= yt){
                     // add the rectangle to the adjacent array
-                    currentarray.get(i).add(currentarray.get(j));
+                    adder(currentarray.get(j));
+                    System.out.println("i did get here");
                 }
             }
         }
-    }
+    
 }
 
 

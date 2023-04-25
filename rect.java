@@ -28,6 +28,7 @@ public class rect {
         for (File file : files) {
             
             System.out.println("Reading file: " + file.getName());
+            MainList.clear();
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
                 boolean firstLine = true; // flag to ignore first line
@@ -45,7 +46,9 @@ public class rect {
                     int yt = Integer.parseInt(values[5].trim());
                     System.out.printf("Processing rectangle %d of %d rectangles: (%d,%d) to (%d,%d)%n", rectangleNumber, numRectangles, xb, yb, xt, yt);
                     // Perform additional processing on the rectangle data here
-                    MainList.add(new Rectangle(xb, yb, xt, yt));
+                    Rectangle temp = new Rectangle(xb, yb, xt, yt);
+                    MainList.add(temp);
+                    // System.out.println("the current bottom x is" + temp.xb);
                     // Rectangle temp = new Rectangle(xb, yb, xt, yt)
                     // currentarray
                 }        
@@ -53,15 +56,17 @@ public class rect {
                 System.err.println("Error reading file: " + file.getName());
                 e.printStackTrace();
             }
-            for(int q =0;q<MainList.size();q++){
-                System.out.println("hello");
-                MainList.get(q).check(MainList);
-                MainList.get(q).printRectangles();
-               }
             i+=1;
-
-             
+            for(int q =0;q<MainList.size();q++){
+                // System.out.println("hello");
+                Rectangle temp = MainList.get(q);
+                //System.out.println("it works"+temp.xb);
+                temp.check(MainList, q);
+                // temp.printRectangles();
+               }
+               
         }
+        
         System.out.println(i);
     }
 

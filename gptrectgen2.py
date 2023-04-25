@@ -31,7 +31,7 @@ def generate_rectangles(num_rectangles):
     return rectangles
 
 
-for num_rectangles in range(1, 12):
+for num_rectangles in range(1, 1000):
     filename = f"rectangles_{num_rectangles}.csv"
     with open(os.path.join("csv", filename), mode="w", newline="") as f:
         writer = csv.writer(f)

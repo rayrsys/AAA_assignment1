@@ -63,6 +63,10 @@ public class rect {
                 //System.out.println("it works"+temp.xb);
                 temp.check(MainList, q);
                 // temp.printRectangles();
+                for(int j =0;j<temp.rectArray.size();j++){
+                    System.out.println("xb is :"+temp.rectArray.get(j).xb+"yb is :"+temp.rectArray.get(j).yb+"xt is :"+temp.rectArray.get(j).xt+"yt is :"+temp.rectArray.get(j).yt);
+                }
+                
                }
                
         }

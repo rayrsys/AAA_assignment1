@@ -37,12 +37,28 @@ public int getNumAdjacent() {
 public void check(ArrayList<Rectangle> currentarray,int i){
         for(int j = i+1; j < currentarray.size(); j++){
             // compare x and y values
-            if(currentarray.get(j).xb == xt+1){
+            if(xt+1 == currentarray.get(j).xb ){
                 // check if the rectangles touch
-                if(currentarray.get(j).yb >= yb && currentarray.get(j).yb <= yt || currentarray.get(j).yt >= yb && currentarray.get(j).yt <= yt){
+                if(yb == currentarray.get(j).yb && yt == currentarray.get(j).yt){
                     // add the rectangle to the adjacent array
                     adder(currentarray.get(j));
                     System.out.println("i did get here");
+                }
+                if(currentarray.get(j).yb<yb && yt> currentarray.get(j).yt && currentarray.get(j).yt>yb){
+                    adder(currentarray.get(j));
+                    System.out.println("slightly lower");
+                }
+                if(currentarray.get(j).yt>yt &&  currentarray.get(j).yb>yb && currentarray.get(j).yb<yt){
+                    adder(currentarray.get(j));
+                    System.out.println("slightly higher");
+                }
+                if(currentarray.get(j).yb>yb && currentarray.get(j).yt<yt){
+                    adder(currentarray.get(j));
+                    System.out.println("slightly smaller");
+                }
+                if(currentarray.get(j).yb<yb && currentarray.get(j).yt>yt){
+                    adder(currentarray.get(j));
+                    System.out.println("slightly bigger");
                 }
             }
         }

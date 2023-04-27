@@ -60,6 +60,8 @@ public class rect {
             for(int q =0;q<MainList.size();q++){
                 // System.out.println("hello");
                 Rectangle temp = MainList.get(q);
+                
+                System.out.printf("temp is",temp.xb, temp.yb, temp.xt, temp.yt);
                 //System.out.println("it works"+temp.xb);
                 temp.check(MainList, q);
                 // temp.printRectangles();
